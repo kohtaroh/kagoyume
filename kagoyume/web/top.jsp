@@ -9,6 +9,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>top</title>
+       <style>
+           .main {  
+               width: 100%;  
+               border: 1px solid #000;  
+               text-align: center;  
+           }  
+           .main div   {  
+               width: 80%;  
+               border: 1px solid #FF0000;  
+               margin: 0 auto;  
+               text-align: left;  
+           }  
+      </style>
     </head>
     <body>
         <div class="main"><form action="Search" method="GET"><br>
@@ -21,11 +34,11 @@
             名前:
             <input type="text" name="name" ><br>
             <input type="submit" name="and" value="検索"><br><br>
-        </form>
+        </form></div>
         <%--ログインの状態がセッションに入っており(LoginCheck.java)それにより表示を分岐させたい--%>
      <% if (session.getAttribute("userID") == null || session.getAttribute("userID").equals("0")) {
               out.print(jh.NotLoginMode());
         } else {out.print(jh.LoginMode());}%>
-        <%=jh.cart()%></div>
+        <%=jh.cart()%>
     </body>
 </html>

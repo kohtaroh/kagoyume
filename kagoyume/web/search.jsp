@@ -11,8 +11,39 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>search</title>
+        <style>
+            .main{
+                float:left;
+                margin-right: 10px;
+                margin-left: 10px;
+                width: 100%;  
+         
+                text-align: center;  
+            }  
+            .main div   {  
+                width: 800px;  
+        
+                margin: 0 auto;  
+                text-align: left;  
+            }  
+            .sub{
+                float:left;
+                margin-top: 2500px;               
+
+
+            }
+            body {  
+                text-align: center;  
+            }  
+            div#wrapper {
+                width: 800px;  
+                margin: 0 auto;  
+                text-align: left;  
+            }  
+        </style>
     </head>
-    <body><%--addされたときにここに戻ってくるが、その際に追加したという一文を表示させたい--%>
+    <body><%=jh.top()%><br>
+        <%--addされたときにここに戻ってくるが、その際に追加したという一文を表示させたい--%>
          <%if (request.getAttribute("add") != null){out.println(request.getAttribute("add"));}%><br><br>
          <div id="wrapper"> <p><table border=1>
                 <tr>
@@ -29,12 +60,12 @@
                     <td width="90"><a href="Add?id=<%= srb.get(i).getCode()%>">カートに追加</td>
                 </tr>
                 <%}%>
-                </table></p><!--/ #wrapper--></div> <br>
+                </table></p> <br>
          <%=jh.top()%>
          <%--ログインの状態がセッションに入っており(LoginCheck.java)それにより表示を分岐させたい--%>
          <% if (session.getAttribute("userID") == null || session.getAttribute("userID").equals("0")) {
               out.print(jh.NotLoginMode());
            } else {out.print(jh.LoginMode());}%>
-           <%=jh.cart()%>
+           <%=jh.cart()%><!--/ #wrapper--></div>
     </body>
 </html>
